@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-// import '../App.css';
 
-function Cats() {
+const FetchCat = () => {
+  const [cat, setCat] = useState([]);
 
-  const API_KEY = "34f9c1b9-0e21-4efb-8c6d-c7663e88e54a"
-
-  const [cat, setCat] = useState({});
-  const url = "https://api.thecatapi.com/v1/images/search"
-
-  const generateImage = async () => {
-    const response = await axios.get(url);
-    console.log(response)
-    console.log(response.data[0].url)
-    setCat(response.data[0].url)
-  }
+  const getCat = async () => {
+    let url = "https://api.thecatapi.com/v1/images/search";
+    let response = await axios.get(url).then((res) => {
+      setCat(res.data[0].url);
+    });
+    return response;
+  };
+  console.log(cat);
   useEffect(() => {
-    generateImage()
-  }, [])
-
+    getCat();
+  }, []);
 
   return (
     <div>
-      <h3>Generate a random cat</h3>
-      <button onClick={() => generateImage()}>Cat Me!</button>
-      <br />
-      <img src={cat} />
+      <button className="btn" onClick={getCat}>
+        Random cat me!{" "}
+      </button>
+      <br></br>
+      <img src={cat} alt="random cat" />
     </div>
   );
-}
+};
 
-export default Cats;
+export default FetchCat;

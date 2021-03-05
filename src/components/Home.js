@@ -4,7 +4,7 @@ function Home() {
   return (
     <div>
       <h2>Animal Generator</h2>
-      <h3>Choose one of the Animal choices above!</h3>
+      <h3>It's raining cats and dogs - choose one!</h3>
     </div>
   )
 }

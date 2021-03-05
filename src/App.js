@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import Dog from "./components/service/Dog";
 import Cats from "./components/service/Cats";
 import Header from "./components/Header";
+import CatSearch from "./components/service/BreedSearch"
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Switch>
         <Route exact path="/" component={Home} />
           <Route path="/Dog" component={Dog} />
-          <Route path="/Cat" component={Cats} />
+          <Route path="/Cats" component={Cats} />
+          <Route exact path="/BreedSearch" component={CatSearch} />
         </Switch>
       </main>
       </Router>
